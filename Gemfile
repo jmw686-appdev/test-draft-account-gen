@@ -40,9 +40,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rack-timeout', require: 'rack/timeout/base'
-gem 'sprockets', '~> 4'
+gem 'sprockets', '< 4'
 gem 'sassc-rails'
-gem 'sprockets-rails', require: 'sprockets/railtie'
 group :development, :test do
   gem 'awesome_print'
   gem 'dotenv-rails'
