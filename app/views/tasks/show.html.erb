@@ -1,0 +1,115 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Task #<%= @task.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/tasks" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_task/<%= @task.id %>" class="btn btn-block btn-outline-secondary">
+          Delete task
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @task.name %>
+      </dd>
+
+      <dt>
+        Duration
+      </dt>
+      <dd>
+        <%= @task.duration %>
+      </dd>
+
+      <dt>
+        Completed
+      </dt>
+      <dd>
+        <%= @task.completed %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @task.description %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@task.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@task.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit task
+    </h2>
+
+    <form action="/modify_task/<%= @task.id %>"  method="post" >
+      <div class="form-group">
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" class="form-control" value="<%= @task.name %>">
+      </div>
+
+      <div class="form-group">
+        <label for="duration_box">
+          Duration
+        </label>
+
+        <input type="text" id="duration_box" name="query_duration" class="form-control" value="<%= @task.duration %>">
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="completed_box" name="query_completed" value="1" <%= "checked" if @task.completed %>>
+
+        <label class="custom-control-label"
+          for="completed_box">Completed</label>
+      </div>
+
+      <div class="form-group">
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" class="form-control" rows="3"><%= @task.description %></textarea>
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update task
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

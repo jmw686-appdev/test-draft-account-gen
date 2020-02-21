@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/firstdraft/draft_generators.git
-  revision: 4f5ab605dc1278071f566566a969f10ccb0de76f
-  branch: summer-2019
+  revision: 4ff667eaac80c07a804884e75c1dfc634e91ae59
+  branch: winter-2020
   specs:
     draft_generators (0.0.3)
       devise
