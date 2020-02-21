@@ -1,0 +1,132 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all tasks
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new task
+    </h2>
+
+    <form action="/insert_task" method="post">
+      <div class="form-group">
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="name_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="duration_box">
+          Duration
+        </label>
+
+        <input type="text" id="duration_box" name="duration_from_query" class="form-control">
+      </div>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="completed_box" name="completed_from_query" value="1">
+
+        <label class="custom-control-label" for="completed_box">Completed</label>
+      </div>
+
+      <div class="form-group">
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="description_from_query" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create task
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Duration
+        </th>
+
+        <th>
+          Completed
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @tasks.each do |task| %>
+      <tr>
+        <td>
+          <%= task.id %>
+        </td>
+
+        <td>
+          <%= task.name %>
+        </td>
+
+        <td>
+          <%= task.duration %>
+        </td>
+
+        <td>
+          <%= task.completed %>
+        </td>
+
+        <td>
+          <%= task.description %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(task.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(task.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/tasks/<%= task.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
