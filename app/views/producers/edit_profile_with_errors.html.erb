@@ -1,0 +1,59 @@
+<div >
+  <h5>
+    Edit Producer Account
+  </h5>
+
+  <% if @producer.errors.any? %>
+  <% @producer.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+  <% end %>
+  <div>
+    <form action="/modify_producer" method="post">
+              
+      <div>
+        <label for="email_box">Email</label>
+          
+        <input id="email_box" name="query_email" value="<%= @current_producer.email %>">
+          
+      </div>
+                                    
+      <div>
+        <label for="name_box">Name</label>
+          
+        <input id="name_box" name="query_name" value="<%= @current_producer.name %>">
+          
+      </div>
+                      
+      <div>
+        <label for="about_box">About</label>
+          
+        <textarea id="about_box" name="query_about" rows="3"><%= @current_producer.about %></textarea> 
+          
+      </div>
+                      
+      <div>
+        <label for="dob_box">Dob</label>
+          
+        <input id="dob_box" name="query_dob" value="<%= @current_producer.dob %>">
+          
+      </div>
+              
+      <div>
+        <label for="password_box">Password</label>
+        <input id="password_box" name="query_password" placeholder="Choose a new password..." type="password">
+      </div>
+    
+      <div>
+        <label for="password_confirmation_box">Password Confirmation</label>
+        <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your new password..." type="password">
+      </div>
+
+      <button>
+        Update account
+      </button>
+    </form>
+  </div>
+</div>
