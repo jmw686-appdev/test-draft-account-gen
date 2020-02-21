@@ -1,0 +1,36 @@
+<div >
+  <h5>
+    Edit Task Doer Account
+  </h5>
+
+  <div>
+    <form action="/patch_task_doer" method="post">
+      <div>
+        <label for="email_box">Email</label>
+        <input id="email_box" name="email_from_query" value="<%= @current_task_doer.email %>">
+      </div>
+      <div>
+        <label for="name_box">Name</label>
+        <input id="name_box" name="name_from_query" value="<%= @current_task_doer.name %>">
+      </div>
+      <div>
+        <label for="about_box">About</label>
+        <textarea id="about_box" name="about_from_query" rows="3"><%= @current_task_doer.about %></textarea> 
+      </div>
+
+      <div>
+        <label for="password_box">Password</label>
+        <input id="password_box" name="password_from_query" placeholder="Choose a password..." type="password">
+      </div>
+    
+      <div>
+        <label for="password_confirmation_box">Password Confirmation</label>
+        <input id="password_confirmation_box" name="password_confirmation_from_query" placeholder="Confirm your password..." type="password">
+      </div>
+
+      <button>
+        Update account
+      </button>
+    </form>
+  </div>
+</div>
